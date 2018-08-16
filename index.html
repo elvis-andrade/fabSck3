@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Smartcitizen Project - Fablabsantiago.org</title>
+	<link rel="stylesheet" href="fabcitydashboard.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	
+	
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script src="https://www.chartjs.org/dist/2.6.0/Chart.js"></script>
+	<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+	
+</head>
+<body>
+
+<!--
+	http://smartcitizen.cl/utils/insertEvent.php?deviceId=smartcitizen1&lat=-33.4852&lng=-70.6093&humidity=40&light=400
+	http://smartcitizen.cl/utils/insertEvent.php?deviceId=smartcitizen2&lat=-33.4652&lng=-70.6493&humidity=20&light=700
+	http://smartcitizen.cl/utils/insertEvent.php?deviceId=smartcitizen3&lat=-33.4152&lng=-70.6693&humidity=10&light=900
+-->
+
+<div id="fullscreen">
+	
+
+
+
+<div id="dataType">
+	
+	<div id="logo"></div>
+
+	<ul>
+	
+		<li class="dataElements" id="humidity"><b>Humedad</b> <span> </span> </li>
+		<li class="dataElements" id="light"><b>Luminosidad</b> <span> </span></li>
+		<li class="dataElements" id="temperature"><b>Temperatura</b> <span> </span></li>
+		<li class="dataElements" id="co"><b>CO</b> <span> </span></li>
+		<li class="dataElements" id="no2"><b>NO2</b> <span> </span></li>
+		<li class="dataElements" id="pm10"><b>PM 10</b> <span> </span></li>
+		<li class="dataElements" id="pm02"><b>PM 0.2</b> <span> </span></li>
+		
+	</ul>
+	
+</div>
+
+</div>
+
+
+
+<div id="zoomArea"></div>
+
+<div id="graph">
+	<canvas id="canvasGraph"></canvas>
+	
+	<div id="close">X</div>
+</div>
+
+<div id="surveyArea1">
+
+	La ciudad te hace feliz?
+	  <div id="surveyResults1">
+		<div id="badResults1">0</div>
+		<div id="neutralResults1">0</div>
+		<div id="goodResults1">0</div>
+	  </div>
+	  
+</div>
+
+
+
+<div id="surveyArea2">
+	La ciudad debe seguir extendi&eacute;ndose en sus l&iacute;mites urbanos?
+	  
+	  <div id="surveyResults2">
+		<div id="badResults2">0</div>
+		<div id="neutralResults2">0</div>
+		<div id="goodResults2">0</div>
+	  </div>
+	  
+</div>
+
+
+
+<div id="graph">
+	<canvas id="canvasGraph"></canvas>
+</div>
+
+<script>
+	
+$( document ).ready(function() {
+
+
+
+
+
+	
+function getAnswers(){
+		
+	$.get( "https://smartcitizen.cl/utils/getQuestionResults.php?questionId=7", function( data ) {
+		if (!isJson(data)){
+			console.log(data);
+			return;
+		} else {
+			results = JSON.parse(data);
+			$( "#badResults1" ).html('0');
+			$( "#neutralResults1" ).html('0');
+			$( "#goodResults1" ).html('0');
+			for (var i = 0; i < results.length; i++) {
+				if (results[i].value=='b') {
+					$( "#badResults1" ).html(results[i].total);
+				}
+								
+				if (results[i].value=='n') {
+					$( "#neutralResults1" ).html(results[i].total);
+				}
+								
+				if (results[i].value=='g') {
+					$( "#goodResults1" ).html(results[i].total);
+				}
+			}	
+						
+		}
+	});
+		
+		
+
+		
+	$.get( "https://smartcitizen.cl/utils/getQuestionResults.php?questionId=8", function( data ) {
+		if (!isJson(data)){
+			console.log(data);
+			return;
+		} else {
+			results = JSON.parse(data);
+			$( "#badResults2" ).html('0');
+			$( "#neutralResults2" ).html('0');
+			$( "#goodResults2" ).html('0');
+			for (var i = 0; i < results.length; i++) {
+				if (results[i].value=='b') {
+					$( "#badResults2" ).html(results[i].total);
+				}
+								
+				if (results[i].value=='n') {
+					$( "#neutralResults2" ).html(results[i].total);
+				}
+								
+				if (results[i].value=='g') {
+					$( "#goodResults2" ).html(results[i].total);
+				}
+			}	
+						
+		}
+	});
+
+
+}
+	
+
+
+   /*
+
+	$( "#humidity" ).click(function() { 
+		draw("humidity", 'smartcitizen1', 'Homedad');
+	});
+	
+	$( "#co" ).click(function() {
+		draw("co", 'smartcitizen1', 'CO');
+	});
+	
+	$( "#light" ).click(function() { 
+		draw("light", 'smartcitizen1', 'Luminosidad');
+	});
+	
+	$( "#no2" ).click(function() {
+		draw("no2", 'smartcitizen1', 'NO2');
+	});
+	
+	$( "#temperature" ).click(function() {
+		draw("temperature", 'smartcitizen1', 'Temperatura');
+	});
+	
+	$( "#noise" ).click(function() {
+		draw("noise", 'smartcitizen1', 'Luminosidad');
+	});
+	
+	$( "#wifispots" ).click(function() {
+		draw("wifispots", 'smartcitizen1', 'Luminosidad');
+	});
+	
+	$( "#pm10" ).click(function() {
+		draw("pm10", 'smartcitizen1', 'PM10');
+	});
+	
+	$( "#pm02" ).click(function() {
+		draw("pm02", 'smartcitizen1', 'PM02');
+	});
+	
+	*/
+	
+
+label=0;
+circle=0;
+label2=0;
+circle2=0;
+label3=0;
+circle3=0;
+labelMeasures="";
+zoomFactor=1;
+	
+	function loadValue(){
+	
+	
+	$( "#humidity > span" ).html( (7 + 125 / 65536 * ((result.smartcitizen1["humidity"]))+humidityFactor).toFixed(2) + " %Rel");
+
+	$( "#co > span" ).html( ((result.smartcitizen1["co"]/75000)+COFactor).toFixed(2) + "  PPM");
+	
+	$( "#light > span" ).html( ((result.smartcitizen1["light"]/10)+luxFactor).toFixed(2) + " Lux");
+	
+	$( "#no2 > span" ).html( ((result.smartcitizen1["no2"]/22000)+NOFactor).toFixed(2) + " PPM");
+	
+	$( "#temperature > span" ).html( ((-46.85 + 175.72 / 65536 * (result.smartcitizen1["temperature"]))+temperatureFactor).toFixed(2) + " &#x2103;");
+		
+	$( "#pm10 > span" ).html( ((result.smartcitizen1["pm10"]/1000)+PM10Factor).toFixed(2) + " mg/m3");
+		
+	$( "#pm02 > span" ).html( ((result.smartcitizen1["pm02"]/1000)+PM02Factor).toFixed(2) + " mg/m3");
+	
+	/*
+		switch (currentValue) {
+			case "humidity":
+				labelMeasures = " %Rel";
+				value3= 
+	
+				break;
+			case "co":
+				labelMeasures = " PPM";
+				value3=result.smartcitizen1[currentValue]/75000;
+
+				break;
+			case "light":
+				labelMeasures = " Lux";
+				value3=result.smartcitizen1[currentValue]/10;
+
+				break;
+			case "no2":
+				labelMeasures = " PPM";
+				value3=result.smartcitizen1[currentValue]/22000;
+
+				break;
+			case "temperature":
+				labelMeasures = " &#x2103;";
+				value3=-46.85 + 175.72 / 65536 * (result.smartcitizen1[currentValue]);
+
+				break;
+			case "pm10":
+				labelMeasures = " mg/m3";
+				value3=result.smartcitizen1[currentValue]/1000;
+
+				break;
+			case "pm02":
+				labelMeasures = " mg/m3";
+				value3=result.smartcitizen1[currentValue]/1000;
+
+		}
+
+
+		*/
+	}
+	
+
+
+
+
+
+	
+	started=false;
+	
+	jsonData=[];
+	result=[];
+	setInterval(function(){ 
+		getData();
+		getAnswers();
+		
+	}, 5000);
+	
+	
+	function getData(){
+	
+		$.get( "https://smartcitizen.cl/utils/getSmartCitizenKitData.php", function( data ) {
+			if (!isJson(data)){
+				console.log(data);
+				console.log("No data...");
+				return;
+			} else {
+				jsondata = JSON.parse(data);
+
+				result = jsondata.reduce(function(map, obj) {
+					map[obj.deviceId] = {humidity: obj.humidity, light: obj.light, lng: obj.lng, lat: obj.lat, pm10: obj.pm10, co: obj.co, pm02: obj.pm02, no2: obj.no2, noise: obj.noise, temperature: obj.temperature, wifispots: obj.wifispots};
+					return map;
+				}, {});
+
+
+				console.log(result);
+				
+				//console.log(jsondata);
+				
+				if (started==false) {
+					started=true;
+					
+				} else {
+					loadValue()
+				}
+			}
+		});
+		
+		
+	
+	}
+	
+	
+	getData();
+	
+	fullscreen=false;
+	
+	document.getElementById("logo").addEventListener("click", function() {
+		if (fullscreen==false) {
+		
+		fullscreen=true;
+		
+			var el = document.documentElement,
+			  rfs = el.requestFullscreen
+				|| el.webkitRequestFullScreen
+				|| el.mozRequestFullScreen
+				|| el.msRequestFullscreen 
+			;
+
+			rfs.call(el);
+		} else {
+			fullscreen=false;
+		// exit full-screen
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.webkitExitFullscreen) {
+				document.webkitExitFullscreen();
+			} else if (document.mozCancelFullScreen) {
+				document.mozCancelFullScreen();
+			} else if (document.msExitFullscreen) {
+				document.msExitFullscreen();
+			}
+		
+		}
+		
+	});
+	
+	
+
+	
+});
+
+
+
+
+
+
+
+		var color = Chart.helpers.color;
+
+
+		function draw(typeData, deviceId, dataToShow){
+		
+			console.log(typeData, deviceId, dataToShow);
+			var graphConfig = {
+				type: 'line',
+				data: {
+					datasets: [{
+						label: dataToShow,
+						backgroundColor: color(window.chartColors.blue).alpha(0.8).rgbString(),
+						borderColor: window.chartColors.blue,
+						fill: false,
+						data: []
+					}]
+				},
+				options: {
+					responsive: true,
+					title:{
+						display:false,
+						text:"Graph"
+					},
+					scales: {
+						xAxes: [{
+							type: "time",
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'Date'
+							}
+						}],
+						yAxes: [{
+							display: true,
+							scaleLabel: {
+								display: true,
+								labelString: 'value'
+							}
+						}]
+					}
+				}
+			};
+		
+			var ctx = document.getElementById("canvasGraph").getContext("2d");
+			myLine = new Chart(ctx, graphConfig);
+
+			radiusArea=5; // hard coded, but depends to zoom...
+			
+			$.get( "https://smartcitizen.cl/utils/getGraphDataID.php?type="+typeData+"&deviceId="+deviceId, function( data ) {
+					if (!isJson(data)){
+						console.log("No data...");
+						return;
+					}
+					var values = JSON.parse(data);
+					for (var i = 0; i < values.length; i++) {
+						//console.log(values[i].day, values[i].data);
+						
+						
+						
+						switch (typeData) {
+							case "humidity":
+								labelMeasures = " %Rel";
+								val=7 + 125 / 65536 * (values[i].data)
+					
+								break;
+							case "co":
+								labelMeasures = " PPM";
+								val=values[i].data/75000;
+
+								break;
+							case "light":
+								labelMeasures = " Lux";
+								val=values[i].data/10;
+
+								break;
+							case "no2":
+								labelMeasures = " PPM";
+								val=values[i].data/22000;
+
+								break;
+							case "temperature":
+								labelMeasures = " &#x2103;";
+								val=-46.85 + 175.72 / 65536 * (values[i].data);
+
+								break;
+							case "pm10":
+								labelMeasures = " mg/m3";
+								val=values[i].data/1000;
+
+								break;
+							case "pm02":
+								labelMeasures = " mg/m3";
+								val=values[i].data/1000;
+
+						}
+						
+						graphConfig.data.datasets[0].data.push({
+							x: values[i].day,
+							y: val,
+						});
+					}
+					myLine.update();
+					$("#graph").css("display", "block");
+			});
+		}
+
+	function isJson(str) {
+		try {
+			JSON.parse(str);
+		} catch (e) {
+			return false;
+		}
+		return true;
+	}
+	
+	
+	
+	$( "#close" ).click(function() { 
+	
+		$("#graph").css("display", "none");
+
+	});
+	
+	
+	function genN(){
+	
+		randomA=Math.floor(Math.random() * 600) + 100;
+		randomB=Math.floor(Math.random() * 600) + 100;
+		randomC=Math.floor(Math.random() * 600) + 100;
+		randomD=Math.floor(Math.random() * 600) + 100;
+		randomE=Math.floor(Math.random() * 600) + 100;
+		randomF=Math.floor(Math.random() * 600) + 100;
+		randomG=Math.floor(Math.random() * 600) + 100;
+		humidityFactor=randomA/200;
+		luxFactor=randomB/15;
+		temperatureFactor=randomC/450;
+		COFactor=randomD/1600;
+		NOFactor=randomE/1700;
+		PM02Factor=randomF/3700;
+		PM10Factor=randomG/4700;
+	
+	}
+	
+	genN();
+	
+	setInterval(function(){ 
+		genN();
+		
+	}, 61000);
+	
+</script>
+
+
+	
+</body>
+</html>

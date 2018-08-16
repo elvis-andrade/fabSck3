@@ -1,0 +1,464 @@
+html, body {
+	margin:0;
+	padding:0;
+	border:0;
+	overflow:hidden;
+	font-family: Montserrat;
+}
+
+
+
+#dataType > ul > li:nth-child(1):hover, #dataType > ul > li:nth-child(6):hover {
+ font-weight: normal;
+}
+
+#fullDp{
+	color: #000;
+	width: 90%;
+	font-size: 9px;
+	border: 0;
+	padding: 6px;
+	border-radius: 2px;
+}
+
+#dataType{
+	left:0;
+	width: 100%;
+	height:100%;
+	position:absolute;
+	background: #1a2a33;
+	color: #fff;
+	font-family: Montserrat;
+	font-size: 1.2em;
+	overflow-y: auto;
+	overflow-x: hidden;
+	}
+
+#dataType ul {
+    padding: 0;
+    margin: 0;
+}
+#dataType ul li {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    list-style: none;
+    display: block;
+    float: left;
+    width: 131px;
+    height: 200px;
+    border: 1px solid #fff;
+    margin: 14px;
+    line-height: 81px;
+    border-radius: 9px;
+}
+
+#dataType ul li:hover {
+   
+	 font-weight: bold;
+}
+
+
+#graph{
+	width:70%;
+	background:#fff;
+	position:absolute;
+	top:10%;
+	left:25%;
+	opacity:0.9;
+	border-radius:6px;
+	display:none;
+	z-index: 9999999999;
+}
+
+#graph canvas {
+
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#mapContainer {
+	left: 235px;
+	width: 100%;
+	height:100%;
+	position:absolute;
+	cursor:url("http://www.cityrider.com/fixed/43aspect.png");
+}
+
+
+#map { 
+	height: 100%; 
+	width: 100%; 
+}
+	
+#zoomArea {
+	display:none; 
+	transform:scale(3);
+	width:60px; 
+	height: 60px; 
+	pointer-events: none; 
+	background:rgba(255,255,255,0.2); 
+	position:absolute; 
+	left:30px; 
+	top:10px; 
+	border-radius:100%;
+}
+
+#logo{
+	height: 80px;
+	background: url(LogoW.png) 12px 4px no-repeat;
+	background-size: contain;
+	padding: 0px 0;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#datepicker{
+    width: 72%;
+    padding: 0px 0px;
+    height: 20px;
+    margin: 0px;
+    position: absolute;
+    margin-left: 12%;
+    top: 3px;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 1.1em;
+    height: 28px;
+}
+#dateBackButton{
+    font-size: 30px;
+    width: 10%;
+    text-align: center;
+    position: absolute;
+    top: 4px;
+}
+#dateNextButton{
+    width: 10%;
+    font-size: 30px;
+    text-align: center;
+    height: 30px;
+    position: absolute;
+    margin-left: 88%;
+    top: 4px;
+}
+
+#date:before{
+	content:"Select period of time";
+	margin-bottom: 4px;
+	display: block;
+	font-size: 13px;
+	width: 198px;
+}
+
+#date{
+	position:relative;
+	height:45px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	font-size: 12px;
+	margin-left: 0px;
+	left: 17px;
+	width: 220px;
+}
+
+#date p{margin: 0;}
+
+.icon{
+	font-family: FontAwesome;
+}
+
+.tdpicker{
+    width: 120px;
+}
+
+.markerYes{
+	background:transparent url(markerYes.png);
+	border-radius: 200px;
+	text-align: center;
+	padding-top: 2px;
+	color:#000;
+	line-height: 10px;
+	font-size: 11px;
+}
+
+.markerNo{
+	background:transparent url(markerNo.png);
+	border-radius: 200px;
+	text-align: center;
+	padding-top: 2px;
+	color:#000;
+	line-height: 10px;
+	font-size: 11px;
+}
+
+#playStop {}
+#playStopLabel {}
+
+#dateTimePlay {
+    width: 616px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    margin-left: -188px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+    color: white;
+    text-align: center;
+    font-size: 35px;
+    line-height: 100px;
+	display:none;
+}
+
+#dataType ul li span{display:block;font-size: 21px;}
+#dataType ul li b{background-color: #080;padding: 10px 19px;border-radius: 12px;font-size: 13px;}
+
+
+#leyenda {
+    width: 162px;
+    height: 80px;
+    position: absolute;
+    left: 0%;
+    z-index: 99999;
+    margin-left: 260px;
+    top: 0%;
+    margin-top: 20px;
+	display: none;
+}
+
+
+
+
+
+
+
+#surveyArea1 {
+	width: 493px;
+	height: 255px;
+	position: absolute;
+	left: 0%;
+	margin-left: 16px;
+	top: 369px;
+	margin-top: 20px;
+	display: block;
+	z-index: 99999999;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 57px;
+}
+
+
+
+
+#badResults1 {
+    position: absolute;
+    top: 165px;
+    width: 80px;
+    height: 80px;
+    background: red;
+    border-radius:200px;
+    text-align:center;
+    line-height:80px;
+    font-size:30px;
+}
+
+#badResults1:before {
+    content: 'No';
+    font-size:14px;
+    position:absolute;
+    top:-60px;
+    left:30px;
+
+}
+
+#goodResults1 {
+    position: absolute;
+    top: 167px;
+    left: 412px;
+    width: 80px;
+    height: 80px;
+    background: green;
+    border-radius:200px;
+    text-align:center;
+    line-height:80px;
+    font-size:30px;
+}
+
+#goodResults1:before {
+    content: 'Si';
+    font-size:14px;
+    position:absolute;
+    top:-60px;
+    left:30px;
+
+}
+
+#neutralResults1 {
+	    position: absolute;
+	    top: 167px;
+	    left: 232px;
+	    width: 80px;
+	    height: 80px;
+	    background: gray;
+	    border-radius:200px;
+	    text-align:center;
+	    line-height:80px;
+	    font-size:30px;
+}
+
+#neutralResults1:before {
+    content: 'Neutro';
+    font-size:14px;
+    position:absolute;
+    top:-60px;
+    left:20px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#surveyArea2 {
+	width: 493px;
+	height: 255px;
+	position: absolute;
+	left: 626px;
+	margin-left: 16px;
+	top: 369px;
+	margin-top: 20px;
+	display: block;
+	z-index: 99999999;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 57px;
+}
+
+
+
+
+#badResults2 {
+    position: absolute;
+    top: 165px;
+    width: 80px;
+    height: 80px;
+    background: red;
+    border-radius:200px;
+    text-align:center;
+    line-height:80px;
+    font-size:30px;
+}
+
+#badResults2:before {
+    content: 'No';
+    font-size:14px;
+    position:absolute;
+    top:-60px;
+    left:30px;
+
+}
+
+#goodResults2 {
+    position: absolute;
+    top: 167px;
+    left: 412px;
+    width: 80px;
+    height: 80px;
+    background: green;
+    border-radius:200px;
+    text-align:center;
+    line-height:80px;
+    font-size:30px;
+}
+
+#goodResults2:before {
+    content: 'Si';
+    font-size:14px;
+    position:absolute;
+    top:-60px;
+    left:30px;
+
+}
+
+#neutralResults2 {
+	    position: absolute;
+	    top: 167px;
+	    left: 232px;
+	    width: 80px;
+	    height: 80px;
+	    background: gray;
+	    border-radius:200px;
+	    text-align:center;
+	    line-height:80px;
+	    font-size:30px;
+}
+
+#neutralResults2:before {
+    content: 'Neutro';
+    font-size:14px;
+    position:absolute;
+    top:-60px;
+    left:20px;
+
+}
+
+
+
+#close {
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: #333;
+    color: #fff;
+    border-radius: 80px;
+    line-height: 35px;
+    text-align: center;
+    position: absolute;
+    top: -22px;
+    left: -22px;
+    border: 4px solid#fff;
+}

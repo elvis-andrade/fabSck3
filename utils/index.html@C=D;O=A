@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /utils</title>
+ </head>
+ <body>
+<h1>Index of /utils</h1>
+  <table>
+   <tr><th valign="top">&nbsp;</th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="/">Parent Directory</a>       </td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="ciclovias.json">ciclovias.json</a>         </td><td align="right">2017-07-04 13:59  </td><td align="right">168K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getAllPointTest.php">getAllPointTest.php</a>    </td><td align="right">2017-10-03 11:59  </td><td align="right">753 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getAllPoints.php">getAllPoints.php</a>       </td><td align="right">2017-08-23 11:56  </td><td align="right">676 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getAverages.php">getAverages.php</a>        </td><td align="right">2017-12-19 10:59  </td><td align="right">869 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getBump.php">getBump.php</a>            </td><td align="right">2017-11-22 13:09  </td><td align="right">690 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getBumpNumber.php">getBumpNumber.php</a>      </td><td align="right">2017-12-18 10:42  </td><td align="right">823 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getDataPoints.php">getDataPoints.php</a>      </td><td align="right">2017-06-09 12:32  </td><td align="right">771 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getDataPointsPolling.php">getDataPointsPolling..&gt;</a></td><td align="right">2017-06-09 12:32  </td><td align="right">855 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getGraphData.php">getGraphData.php</a>       </td><td align="right">2017-06-13 14:15  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getGraphDataID.php">getGraphDataID.php</a>     </td><td align="right">2018-03-21 11:15  </td><td align="right">748 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getHeatmap.php">getHeatmap.php</a>         </td><td align="right">2017-12-20 09:10  </td><td align="right">724 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getNoNumber.php">getNoNumber.php</a>        </td><td align="right">2017-12-18 10:40  </td><td align="right">822 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getQuestionResults.php">getQuestionResults.php</a> </td><td align="right">2017-11-28 11:48  </td><td align="right">693 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getQuestions.php">getQuestions.php</a>       </td><td align="right">2017-11-28 11:31  </td><td align="right">638 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getSmartCitizenKitData.php">getSmartCitizenKitDa..&gt;</a></td><td align="right">2017-07-14 12:17  </td><td align="right">3.3K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getSmartCitizenKitData2.php">getSmartCitizenKitDa..&gt;</a></td><td align="right">2017-07-14 11:22  </td><td align="right">  0 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getStationData.php">getStationData.php</a>     </td><td align="right">2017-11-30 12:31  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getYesNo.php">getYesNo.php</a>           </td><td align="right">2017-07-07 11:46  </td><td align="right">691 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="getYesNumber.php">getYesNumber.php</a>       </td><td align="right">2017-12-18 10:39  </td><td align="right">824 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="insertEvent.php">insertEvent.php</a>        </td><td align="right">2017-11-22 12:31  </td><td align="right">2.2K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="insertEventRnd.php">insertEventRnd.php</a>     </td><td align="right">2017-06-09 13:46  </td><td align="right">2.8K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="insertMobileEventRnd.php">insertMobileEventRnd..&gt;</a></td><td align="right">2017-06-20 12:59  </td><td align="right">2.9K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="insertQuestion.php">insertQuestion.php</a>     </td><td align="right">2017-11-28 13:10  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="insertResponse.php">insertResponse.php</a>     </td><td align="right">2017-11-28 13:15  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="registerDevice.php">registerDevice.php</a>     </td><td align="right">2017-06-09 12:32  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="registerDeviceRnd.php">registerDeviceRnd.php</a>  </td><td align="right">2017-06-09 12:59  </td><td align="right">716 </td><td>&nbsp;</td></tr>
+<tr><td valign="top">&nbsp;</td><td><a href="registerMobileDeviceRnd.php">registerMobileDevice..&gt;</a></td><td align="right">2017-06-20 12:51  </td><td align="right">722 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+</body></html>
